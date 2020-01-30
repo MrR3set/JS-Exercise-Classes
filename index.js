@@ -119,6 +119,11 @@ class Lambdasian {
     speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
+    grade(student, subject) {
+        student.grade = (Math.random() * Math.floor(99));
+        return ` ${student.name} receives a perfect score on ${subject}`;
+    }
+
 }
 
 /*
@@ -144,10 +149,6 @@ class Instructor extends Lambdasian {
     }
     demo(subject) {
         return `Today we are learning about ${subject}`;
-    }
-
-    grade(student, subject) {
-        return ` ${student.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -181,6 +182,14 @@ class Student extends Lambdasian {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
+    }
+    ngrade = 1;
+    graduate() {
+        if (this.ngrade <= 70) {
+            return `${this.name} just graduated`;
+        } else {
+            super.grade(this);
+        }
     }
 }
 
